@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+import Payment from './Payment'
+
 const Header = ({auth}) => {
 
   const [userState, setUserState] = useState(null);
@@ -21,14 +23,12 @@ const Header = ({auth}) => {
         <ul className="right">
           {userState ? (
             <>
-              <li>
-                <a href="/api/auth/logout">Logout</a>
-              </li>
+              <li><Payment /></li>
+              <li style={{margin: '0 10px'}}>Credits: {auth.credits}</li>
+              <li><a href="/api/auth/logout">Logout</a></li>
             </>
           ) : (
-            <li>
-              <a href="/api/auth/google">Login with Google</a>
-            </li>
+            <li><a href="/api/auth/google">Login with Google</a></li>
           )
           }
         </ul>

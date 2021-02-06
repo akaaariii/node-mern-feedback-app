@@ -1,7 +1,8 @@
 import { FETCH_USER } from '../actions/types';
 
 const initState = {
-  user: null
+  user: null,
+  credits: 0
 }
 
 const authReducer = (state = initState, action) => {
