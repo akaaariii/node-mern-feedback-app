@@ -10,6 +10,10 @@ import 'materialize-css/dist/css/materialize.min.css';
 import App from './components/App'
 import reducers from './reducers';
 
+// for dev purposes
+// import axios from 'axios';
+// window.axios = axios;
+
 const middleware = process.env.NODE_ENV === 'production' ? [thunk] : [thunk, logger];
 
 const store = createStore(reducers, {}, applyMiddleware(...middleware));
