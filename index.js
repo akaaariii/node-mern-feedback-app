@@ -4,6 +4,7 @@ const cookieSession = require('cookie-session'); //express can read cookie
 const passport = require('passport');
 
 require('./models/user.model');
+require('./models/survey.model');
 require('./services/passport');
 const keys = require('./config/keys');
 
@@ -23,9 +24,11 @@ app.use(passport.session());
 
 const authRoutes = require('./routes/auth.route');
 const billingRoutes = require('./routes/billing.route');
+const surveyRoutes = require('./routes/survey.route');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/stripe', billingRoutes);
+app.use('/api/surveys', surveyRoutes);
 
 
 if(process.env.NODE_ENV === 'production'){
